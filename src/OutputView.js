@@ -24,6 +24,11 @@ const OutputView = {
         Console.print(MESSAGE.AMOUNT_MSG(new Intl.NumberFormat().format(beforeTotalAmount)));
     },
 
+    outputGiftMenu(champagneGift) {
+        Console.print(MESSAGE.GIFT_MENU_MSG);
+        Console.print(MESSAGE.ORDER_MENU_MSG(champagneGift, 1));
+    },
+
 }
 
 export default OutputView
