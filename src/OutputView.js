@@ -19,6 +19,11 @@ const OutputView = {
         });
     },
 
+    outputDiscountBeforeTotalAmount(beforeTotalAmount) {
+        Console.print(MESSAGE.TOTAL_ORDER_MSG);
+        Console.print(MESSAGE.AMOUNT_MSG(new Intl.NumberFormat().format(beforeTotalAmount)));
+    },
+
 }
 
 export default OutputView
