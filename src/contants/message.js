@@ -10,6 +10,11 @@ export const MESSAGE = {
     EVENT_BADGE_MSG: '<12월 이벤트 배지>',
 }
 
+export const ERROR_MESSAGE = {
+    VISIT_SCHEDULE_ERROR: '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.',
+    ORDER_MENU_ERROR: '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+}
+
 export const BENEFIT_MESSAGE = {
     CHRISTMAS_DDAY_DISCOUNT: '크리스마스 디데이 할인: ',
     WEEKDAY_DISCOUNT: '평일 할인: ',
