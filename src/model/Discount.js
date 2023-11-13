@@ -3,37 +3,30 @@ import { MAIN_MENU } from "../contants/constants.js"
 
 class Discount {
 
-    constructor(day, order){
-        this.christmasDiscount = 0;
-        this.weekendDiscount = 0;
-        this.specialDiscount = 0;
-        this.weekday;
-        this.#christmasDiscountCheck(day);
-        this.#weekendDiscountCheck(day, order);
-    }
-
-    #christmasDiscountCheck(day) {
+    christmasDiscountCheck(day) {
         let totalAmount = AMOUNT.CHRISTMAS_START_AMOUNT;
         const CHRISTMAS_DATE = DATE.EVENT_MAX_DATE.getDate();
         if(day <= CHRISTMAS_DATE) {
             for(let i = 1; i < day; i++) {
                 totalAmount += AMOUNT.CHRISTMAS_PLUS_AMOUNT;
             }
-            this.christmasDiscount = totalAmount;
         }
-        this.#specialDiscountCheck(day);
+        return totalAmount;
     }
 
-    #weekendDiscountCheck(day, order) {
+    weekendDiscountCheck(day, order) {
+        let weekendDiscount = 0;
+        let weekday;
         const VISIT_DAY = new Date(2023, 11, day);
         if(VISIT_DAY.getDay() >= AMOUNT.WEEKDAY_START && VISIT_DAY.getDay() <= AMOUNT.WEEKDAY_END) {
-            this.weekday = DATE.EVENT_WEEKDAY;
-            this.weekendDiscount = this.#weekendDiscountAmountCheck(this.weekday, order);
+            weekday = DATE.EVENT_WEEKDAY;
+            weekendDiscount = this.#weekendDiscountAmountCheck(weekday, order);
         } 
         if(VISIT_DAY.getDay() >= AMOUNT.WEEKEND_START && VISIT_DAY.getDay() <= AMOUNT.WEEKEND_END) {
-            this.weekday = DATE.EVENT_WEEKEND;
-            this.weekendDiscount = this.#weekendDiscountAmountCheck(this.weekday, order);
+            weekday = DATE.EVENT_WEEKEND;
+            weekendDiscount = this.#weekendDiscountAmountCheck(weekday, order);
         }
+        return {weekday, weekendDiscount};
     }
 
     #weekendDiscountAmountCheck(weekday, order) {
@@ -50,13 +43,15 @@ class Discount {
         return discountAmount;
     }
 
-    #specialDiscountCheck(day) {
+    specialDiscountCheck(day) {
+        let specialDiscount = 0;
         const VISIT_DAY = new Date(2023, 11, day);
         const CHRISTMAS_DATE = DATE.EVENT_MAX_DATE.getDate();
         const SUNDAY = AMOUNT.WEEKDAY_START;
         if(VISIT_DAY.getDay() === SUNDAY || day === CHRISTMAS_DATE){
-            this.specialDiscount = AMOUNT.SPECIAL_DISCOUNT;
+            specialDiscount = AMOUNT.SPECIAL_DISCOUNT;
         }
+        return specialDiscount;
     }
 }
 
