@@ -13,13 +13,18 @@ const Validation = {
 
     inputOrderMenuValidate(orderMenu){
         const duplicateData = [];
+        let menuQuantityCount = 0;
         orderMenu.forEach((data, idx) => {
             const [menu, quantity] = data.split('-');
             duplicateData.push(menu);
+            menuQuantityCount += Number(quantity);
             this.orderMenuValidateCheck(orderMenu, data, menu, quantity);
         });
         if([...new Set(duplicateData)].length !== orderMenu.length)
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        if(menuQuantityCount > 20){
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        }
     },
 
     orderMenuValidateCheck(orderMenu, data, menu, quantity){
