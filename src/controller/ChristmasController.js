@@ -6,6 +6,7 @@ import Event from '../model/Event.js';
 import Order from '../model/Order.js';
 import VisitDate from '../model/VisitDate.js';
 
+
 class ChristmasController {
 
     #visitSchedule;
@@ -67,3 +68,5 @@ class ChristmasController {
     }
 
 }
+
+export default ChristmasController
