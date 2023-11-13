@@ -57,6 +57,7 @@ class ChristmasController {
 
     #playEvent(){
         OutputView.outputPreviewEventBenefit(this.#visitSchedule.day);
+        OutputView.outputOrderMenu(this.#orderMenu.order);
     }
 
 }
