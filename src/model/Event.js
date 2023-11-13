@@ -2,7 +2,7 @@ import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/constants
 
 class Event {
 
-    #totalDiscount
+    #totalDiscount;
 
     constructor() {
         this.#totalDiscount = 0;

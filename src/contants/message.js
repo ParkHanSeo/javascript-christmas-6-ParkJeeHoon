@@ -48,18 +48,18 @@ export const ERROR_MESSAGE = {
 
 export const BENEFIT_MESSAGE = {
     CHRISTMAS_DDAY_DISCOUNT: (discount) => {
-        return `크리스마스 디데이 할인: -${discount}`
+        return `크리스마스 디데이 할인: -${discount}`;
     },
     WEEKDAY_DISCOUNT: (discount, weekday) => {
         if(weekday === 'we')
-            return `주말 할인: -${discount}`
+            return `주말 할인: -${discount}`;
         if(weekday === 'wd')
-            return `평일 할인: -${discount}`
+            return `평일 할인: -${discount}`;
     },
     SPECIAL_DISCOUNT: (discount) => {
-        return `특별 할인: -${discount}`
+        return `특별 할인: -${discount}`;
     },
     GIFT_EVENT: (gitf) => {
-        return `증정 이벤트: -25,000`
+        return `증정 이벤트: -25,000`;
     },
 }
