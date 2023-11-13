@@ -72,7 +72,7 @@
 - == 사용자가 보이는 출력값을 위한 함수를 관리하는 파일
 
 ## :computer: 커밋 메세지 컨벤션
----
+```
 - Allowed <type>
 - feat (feature)
 - fix (bug fix)
@@ -81,7 +81,7 @@
 - refactor
 - test (when adding missing tests)
 - chore (maintain)
----
+```
 
 ## 테스트 결과
 ![크리스마스 프로모션 결과](https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_result.png)
