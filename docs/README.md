@@ -33,7 +33,7 @@
 - [x] 사용자의 입력값이 개수가 20개가 넘을 경우 ERROR 기능
 
 ## :file_folder: 패키지 구조 및 파일명
----
+```
 - src
   - constants
   - - constants.js
@@ -51,7 +51,7 @@
   - index.js
   - InputView.js
   - OutputView.js
----
+```
 - constants.js
 - == 크리스마스 프로모션의 메뉴, 가격 등 객체를 관리하는 파일
 - message.js
