@@ -31,11 +31,11 @@ const OutputView = {
 
     outputBenefitList(discount, gift) {
         Console.print(MESSAGE.BENEFIT_LIST_MSG);
-        if(discount.christmasDiscount !== 0)
+        if(discount.CHRISTMAS_DISCOUNT !== 0)
             Console.print(BENEFIT_MESSAGE.CHRISTMAS_DDAY_DISCOUNT(new Intl.NumberFormat().format(discount.CHRISTMAS_DISCOUNT)));
-        if(discount.weekendDiscount !== 0)
+        if(discount.WEEKEND_DISCOUNT.weekendDiscount !== 0)
             Console.print(BENEFIT_MESSAGE.WEEKDAY_DISCOUNT(new Intl.NumberFormat().format(discount.WEEKEND_DISCOUNT.weekendDiscount), discount.WEEKEND_DISCOUNT.weekday));
-        if(discount.specialDiscount !== 0)
+        if(discount.SPECIAL_DISCOUNT !== 0)
             Console.print(BENEFIT_MESSAGE.SPECIAL_DISCOUNT(new Intl.NumberFormat().format(discount.SPECIAL_DISCOUNT)));
         if(gift !== '' && gift !== undefined)
             Console.print(BENEFIT_MESSAGE.GIFT_EVENT(gift));

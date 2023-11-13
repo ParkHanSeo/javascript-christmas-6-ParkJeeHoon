@@ -10,8 +10,9 @@ class Discount {
             for(let i = 1; i < day; i++) {
                 totalAmount += AMOUNT.CHRISTMAS_PLUS_AMOUNT;
             }
+            return totalAmount;
         }
-        return totalAmount;
+        return 0;
     }
 
     weekendDiscountCheck(day, order) {

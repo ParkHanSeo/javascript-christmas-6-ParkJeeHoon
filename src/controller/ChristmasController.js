@@ -64,7 +64,6 @@ class ChristmasController {
     }
 
     #playEvent(){
-        console.log(this.#event.GIFT_EVENT.champagneGift);
         OutputView.outputPreviewEventBenefit(this.#visitSchedule.day);
         OutputView.outputOrderMenu(this.#orderMenu.order);
         OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.totalOrderAmount);
