@@ -18,21 +18,26 @@ const Validation = {
             const [menu, quantity] = data.split('-');
             duplicateData.push(menu);
             menuQuantityCount += Number(quantity);
-            this.orderMenuValidateCheck(orderMenu, data, menu, quantity);
+            this.orderMenuForValidateCheck(orderMenu, data, menu, quantity);
         });
-        if([...new Set(duplicateData)].length !== orderMenu.length)
-            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-        if(menuQuantityCount > 20){
-            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-        }
+        this.orderMenuValidateCheck(orderMenu, duplicateData, menuQuantityCount);
     },
 
-    orderMenuValidateCheck(orderMenu, data, menu, quantity){
+    orderMenuForValidateCheck(orderMenu, data, menu, quantity){
         if(!Object.values(TOTAL_MENU).find(data => data.name === menu))
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
         if(isNaN(quantity) || quantity == 0)
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
         if(orderMenu.length == 1 && Object.values(BEVERAGE_MENU).find(data => data.name === menu))
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+    },
+
+    orderMenuValidateCheck(orderMenu, duplicateData, menuQuantityCount){
+        if([...new Set(duplicateData)].length !== orderMenu.length)
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        if(menuQuantityCount > 20)
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        if(orderMenu.every((menu) => Object.values(BEVERAGE_MENU).find(data => data.name === menu.split('-')[0])))
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
     }
 }
