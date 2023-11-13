@@ -48,6 +48,11 @@ const OutputView = {
         }
     },
 
+    outputTotalBenefitAmount(amount) {
+        Console.print(MESSAGE.TOTAL_BENEFIT_AMOUNT_MSG);
+        Console.print(MESSAGE.DISCOUNT_MSG(new Intl.NumberFormat().format(amount)));
+    },
+
 }
 
 export default OutputView
