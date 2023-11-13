@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE } from "../contants/message.js";
-import { TOTAL_MENU } from "../contants/constants.js"
+import { TOTAL_MENU, BEVERAGE_MENU } from "../contants/constants.js"
 
 const Validation = {
     inputVisitScheduleValidate(visitSchedule){
@@ -18,7 +18,9 @@ const Validation = {
             duplicateData.push(menu);
             if(!Object.values(TOTAL_MENU).find(data => data.name === menu))
                 throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-            if(isNaN(quantity))
+            if(isNaN(quantity) || quantity == 0)
+                throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+            if(orderMenu.length == 1 && Object.values(BEVERAGE_MENU).find(data => data.name === menu))
                 throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
         });
         if([...new Set(duplicateData)].length !== orderMenu.length)
