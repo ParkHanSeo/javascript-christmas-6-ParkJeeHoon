@@ -16,14 +16,18 @@ const Validation = {
         orderMenu.forEach((data, idx) => {
             const [menu, quantity] = data.split('-');
             duplicateData.push(menu);
-            if(!Object.values(TOTAL_MENU).find(data => data.name === menu))
-                throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-            if(isNaN(quantity) || quantity == 0)
-                throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-            if(orderMenu.length == 1 && Object.values(BEVERAGE_MENU).find(data => data.name === menu))
-                throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+            this.orderMenuValidateCheck(orderMenu, data, menu, quantity);
         });
         if([...new Set(duplicateData)].length !== orderMenu.length)
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+    },
+
+    orderMenuValidateCheck(orderMenu, data, menu, quantity){
+        if(!Object.values(TOTAL_MENU).find(data => data.name === menu))
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        if(isNaN(quantity) || quantity == 0)
+            throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
+        if(orderMenu.length == 1 && Object.values(BEVERAGE_MENU).find(data => data.name === menu))
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
     }
 }
