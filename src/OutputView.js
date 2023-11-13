@@ -29,6 +29,19 @@ const OutputView = {
         Console.print(MESSAGE.ORDER_MENU_MSG(champagneGift, 1));
     },
 
+    outputBenefitList(discount, gift) {
+        Console.print(MESSAGE.BENEFIT_LIST_MSG);
+        if(discount.christmasDiscount !== 0)
+            Console.print(BENEFIT_MESSAGE.CHRISTMAS_DDAY_DISCOUNT(new Intl.NumberFormat().format(discount.christmasDiscount)));
+        if(discount.weekendDiscount !== 0)
+            Console.print(BENEFIT_MESSAGE.WEEKDAY_DISCOUNT(new Intl.NumberFormat().format(discount.weekendDiscount), discount.weekday));
+        if(discount.specialDiscount !== 0)
+            Console.print(BENEFIT_MESSAGE.SPECIAL_DISCOUNT(new Intl.NumberFormat().format(discount.specialDiscount)));
+        if(gift !== '' && gift !== undefined)
+            Console.print(BENEFIT_MESSAGE.GIFT_EVENT(gift));
+        this.checkBenefitOunput(discount, gift);
+    },
+
 }
 
 export default OutputView
