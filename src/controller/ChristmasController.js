@@ -62,6 +62,8 @@ class ChristmasController {
         OutputView.outputGiftMenu(this.#event.champagneGift);
         OutputView.outputBenefitList(this.#discount, this.#event.champagneGift);
         OutputView.outputTotalBenefitAmount(this.#event.totalDiscount);
+        OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalOrderAmount-this.#totalDiscount);
+        OutputView.outputEventBadge(this.#event.badge);
     }
 
 }

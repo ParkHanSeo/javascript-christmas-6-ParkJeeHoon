@@ -53,6 +53,15 @@ const OutputView = {
         Console.print(MESSAGE.DISCOUNT_MSG(new Intl.NumberFormat().format(amount)));
     },
 
+    outputDiscountAfterTotalAmount(amount) {
+        Console.print(MESSAGE.EXPECTED_PAYMENT_AMOUNT_MSG);
+        Console.print(MESSAGE.AMOUNT_MSG(new Intl.NumberFormat().format(amount)));
+    },
+
+    outputEventBadge(badge) {
+        Console.print(MESSAGE.EVENT_BADGE_MSG);
+        Console.print(MESSAGE.BADGE_MSG(badge));
+    }
 }
 
 export default OutputView
