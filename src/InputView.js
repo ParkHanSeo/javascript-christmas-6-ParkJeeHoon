@@ -12,6 +12,14 @@ const InputView = {
             Console.print(error.message);
             await this.userInputVisitSchedule();
         }
+    },
+
+    async userInputOrderMenu() {
+        try{
+            const ORDER_MENU = await Console.readLineAsync(INPUT_MESSAGE.INPUT_ORDER_MENU_MSG);
+        }catch(error){
+
+        }
     }
 }
 
