@@ -84,7 +84,7 @@
 ---
 
 ## 테스트 결과
-
+![크리스마스 프로모션 결과](https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_result.png)
 
 ## :high_brightness: 기능 구조
 - 고객들이 식당에 방문할 날짜와 메뉴를 미리 선택하면 이벤트 플래너가 주문 메뉴, 할인 전 총주문 금액, 증정 메뉴, 혜택 내역, 총혜택 금액, 할인 후 예상 결제 금액, 12월 이벤트 배지 내용을 보여주기를 기대합니다.
