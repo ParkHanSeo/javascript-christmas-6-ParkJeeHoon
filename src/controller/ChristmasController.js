@@ -5,11 +5,18 @@ class ChristmasController {
     #visitSchedule;
 
     async christmasProcess(){
+        OutputView.outputWelCome();
         this.#inputVisitSchedule();
     }
 
     async #inputVisitSchedule(){
-        this.#visitSchedule = InputView.userInputVisitSchedule();
+        try{
+            const INPUT_VISIT_SCHEDULE = await InputView.userInputVisitSchedule();
+            this.#visitSchedule = new VisitDate(INPUT_VISIT_SCHEDULE);
+        }catch(error){
+            Console.print(error.message);
+            await this.#inputVisitSchedule();
+        }
     }
 
 }
