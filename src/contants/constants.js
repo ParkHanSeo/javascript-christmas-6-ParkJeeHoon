@@ -58,6 +58,10 @@ export const BEVERAGE_MENU = {
     }
 }
 
+export const QUANTITY = {
+    MAX_QUANTITY: 20
+}
+
 export const TOTAL_MENU = {
     MUSHROOM_SOUP: {
         name: '양송이수프',
