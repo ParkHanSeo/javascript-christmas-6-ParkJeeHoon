@@ -1,5 +1,7 @@
 class App {
-  async run() {}
+  async run() {
+    await new Christmas().christmasProcess();
+  }
 }
 
 export default App;
