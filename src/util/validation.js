@@ -1,9 +1,9 @@
 import { ERROR_MESSAGE } from "../contants/message.js";
-import { TOTAL_MENU, BEVERAGE_MENU } from "../contants/constants.js"
+import { TOTAL_MENU, BEVERAGE_MENU, DATE, QUANTITY } from "../contants/constants.js"
 
 const Validation = {
     inputVisitScheduleValidate(visitSchedule){
-        if(visitSchedule < 1 || visitSchedule > 31)
+        if(visitSchedule < DATE.START_DAY || visitSchedule > DATE.END_DAY)
             throw new Error(`${ERROR_MESSAGE.VISIT_SCHEDULE_ERROR}`);
         if(visitSchedule == 0 || visitSchedule == '' || visitSchedule == undefined)
             throw new Error(`${ERROR_MESSAGE.VISIT_SCHEDULE_ERROR}`);
@@ -35,7 +35,7 @@ const Validation = {
     orderMenuValidateCheck(orderMenu, duplicateData, menuQuantityCount){
         if([...new Set(duplicateData)].length !== orderMenu.length)
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
-        if(menuQuantityCount > 20)
+        if(menuQuantityCount > QUANTITY.MAX_QUANTITY)
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
         if(orderMenu.every((menu) => Object.values(BEVERAGE_MENU).find(data => data.name === menu.split('-')[0])))
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
