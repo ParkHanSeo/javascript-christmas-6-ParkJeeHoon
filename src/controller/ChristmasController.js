@@ -20,6 +20,7 @@ class ChristmasController {
         await this.#inputOrderMenu();
         this.#discountCheck();
         this.#eventCheck();
+        this.#playEvent();
     }
 
     async #inputVisitSchedule(){
@@ -52,6 +53,10 @@ class ChristmasController {
             this.#discount.weekendDiscount + 
             this.#discount.specialDiscount;
         this.#event = new Event(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
+    }
+
+    #playEvent(){
+        OutputView.outputPreviewEventBenefit(this.#visitSchedule.day);
     }
 
 }

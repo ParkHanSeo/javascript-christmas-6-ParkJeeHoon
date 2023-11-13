@@ -7,6 +7,10 @@ const OutputView = {
         Console.print(MESSAGE.WELCOME_MSG);
     },
 
+    outputPreviewEventBenefit(day) {
+        Console.print(MESSAGE.EVENT_BENEFIT_MSG(day)+'\n');
+    },
+
 }
 
 export default OutputView
