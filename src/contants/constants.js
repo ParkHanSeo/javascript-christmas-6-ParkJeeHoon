@@ -124,7 +124,11 @@ export const BADGE_AMOUNT = {
 export const DATE = {
     EVENT_MAX_DATE: new Date(2023, 11, 25),
     EVENT_WEEKDAY: 'wd',
-    EVENT_WEEKEND: 'we'
+    EVENT_WEEKEND: 'we',
+    THIS_YEAR: 2023,
+    EVENT_MONTH: 11,
+    START_DAY: 1,
+    END_DAY: 31
 }
 
 export const AMOUNT = {
