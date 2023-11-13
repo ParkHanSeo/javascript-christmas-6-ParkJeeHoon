@@ -180,6 +180,81 @@ describe("예외 테스트", () => {
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
   });
 
+  test("1) 날짜 예외 테스트 : 1 ~ 31 사이의 숫자가 아닐 경우", async () => {
+    // given
+    const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["1", "크리스마스파스타-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["0", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
+  });
+
+  test("2) 날짜 예외 테스트 : 1 ~ 31 사이의 숫자가 아닐 경우", async () => {
+    // given
+    const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["1", "티본스테이크-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["32", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
+  });
+
+  test("날짜 예외 테스트 : 값이 공백일 경우", async () => {
+    // given
+    const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["1", "바비큐립-1"];
+    const logSpy = getLogSpy();
+    mockQuestions([" ", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
+  });
+
+  test("날짜 예외 테스트 : 값이 숫자가 아닐 경우", async () => {
+    // given
+    const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["1", "해산물파스타-4"];
+    const logSpy = getLogSpy();
+    mockQuestions(["notnumber", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
+  });
+
+  test("날짜 예외 테스트 : 값이 숫자가 아니며 공백도 있을 경우", async () => {
+    // given
+    const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["1", "크리스마스파스타-3"];
+    const logSpy = getLogSpy();
+    mockQuestions(["    notnumber", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_DATE_MESSAGE));
+  });
+
   test("주문 예외 테스트", async () => {
     // given
     const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
@@ -194,4 +269,65 @@ describe("예외 테스트", () => {
     // then
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
   });
+
+  test("주문 예외 테스트 : 없는 메뉴일 경우", async () => {
+    // given
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["티본스테이크-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["21", "펩시콜라-2", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  });
+
+  test("주문 예외 테스트 : 메뉴가 중복일 경우", async () => {
+    // given
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["바비큐립-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["12", "시저샐러드-1,시저샐러드-2", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  });
+
+  test("주문 예외 테스트 : 메뉴의 수량이 0일 경우", async () => {
+    // given
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["양송이수프-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["3", "타파스-0", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  });
+
+  test("주문 예외 테스트 : 입력값이 예시와 다를 경우", async () => {
+    // given
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["시저샐러드-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["7", "아이스크림-|-0", ...INPUTS_TO_END]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  });
+  
 });
