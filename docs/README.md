@@ -52,20 +52,25 @@
   - InputView.js
   - OutputView.js
 ```
+### Constants
 - constants.js
 - == 크리스마스 프로모션의 메뉴, 가격 등 객체를 관리하는 파일
 - message.js
 - == output에 출력되는 객체를 관리하는
+### Controller
 - ChristmasController.js
 - == 크리스마스 프로모션의 전반적인 로직을 관리하는 파일
+### Model
 - Discount.js
 - == 크리스마스 디데이할인, 평일&주말 할인 등 할인관련의 생성자 및 함수를 관리하는 파일
 - Event.js
 - == 증정품, 뱃지 등 이벤트관련의 생성자 및 함수를 관리하는 파일
 - Order.js
 - == 사용자가 입력한 주문 메뉴&수량에 관한 생성자, 총금액 및 유효성체크를 관리하는 파일
+### Util
 - VisitDate.js
 - == 사용자가 입력한 방문일자에 관한 생성자 및 유효성체크를 관리하는 파일
+### View
 - InputView.js
 - == 사용자의 입력을 위한 함수를 관리하는 파일
 - OutputView.js
