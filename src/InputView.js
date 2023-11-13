@@ -8,11 +8,8 @@ const InputView = {
     },
 
     async userInputOrderMenu() {
-        try{
-            const ORDER_MENU = await Console.readLineAsync(INPUT_MESSAGE.INPUT_ORDER_MENU_MSG);
-        }catch(error){
-
-        }
+        const ORDER_MENU = await Console.readLineAsync(INPUT_MESSAGE.INPUT_ORDER_MENU_MSG);
+        return ORDER_MENU.split(',');
     }
 }
 
