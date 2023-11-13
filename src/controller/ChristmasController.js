@@ -10,11 +10,13 @@ class ChristmasController {
 
     #visitSchedule;
     #orderMenu;
+    #discount;
 
     async christmasProcess(){
         OutputView.outputWelCome();
         await this.#inputVisitSchedule();
         await this.#inputOrderMenu();
+        this.#discountCheck();
     }
 
     async #inputVisitSchedule(){
@@ -35,6 +37,10 @@ class ChristmasController {
             Console.print(error.message);
             await this.#inputOrderMenu();
         }
+    }
+
+    #discountCheck(){
+        this.#discount = new Discount(this.#visitSchedule.day, this.#orderMenu.order);
     }
 
 }
