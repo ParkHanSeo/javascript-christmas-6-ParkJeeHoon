@@ -2,31 +2,35 @@ import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/constants
 
 class Event {
 
-    constructor(discount, totalAmount) {
-        this.totalDiscount = discount;
-        this.badge;
-        this.champagneGift;
-        this.#giftEventCheck(discount, totalAmount);
+    #totalDiscount
+
+    constructor() {
+        this.#totalDiscount = 0;
     }
 
-    #giftEventCheck(discount, totalAmount) {
+    giftEventCheck(discount, totalAmount) {
+        let champagneGift;
+        let giftTotalDiscount = 0;
         if(totalAmount >= EVENT.GIFT_AMOUNT){
-            this.champagneGift = BEVERAGE_MENU.CHAMPAGNE.name;
-            this.totalDiscount = BEVERAGE_MENU.CHAMPAGNE.price + discount;
+            champagneGift = BEVERAGE_MENU.CHAMPAGNE.name;
+            giftTotalDiscount = BEVERAGE_MENU.CHAMPAGNE.price + discount;
         }
-        this.#badgeEventCheck();
+        this.#totalDiscount = giftTotalDiscount;
+        return { giftTotalDiscount, champagneGift };
     }
 
-    #badgeEventCheck() {
-        if(this.totalDiscount >= BADGE_AMOUNT.STAR_AMOUNT){
-            this.badge = BADGE.STAR;
+    badgeEventCheck() {
+        let badge;
+        if(this.#totalDiscount >= BADGE_AMOUNT.STAR_AMOUNT){
+            badge = BADGE.STAR;
         }
-        if(this.totalDiscount >= BADGE_AMOUNT.TREE_AMOUNT){
-            this.badge = BADGE.TREE;
+        if(this.#totalDiscount >= BADGE_AMOUNT.TREE_AMOUNT){
+            badge = BADGE.TREE;
         }
-        if(this.totalDiscount >= BADGE_AMOUNT.SANTA_AMOUNT){
-            this.badge = BADGE.SANTA;
+        if(this.#totalDiscount >= BADGE_AMOUNT.SANTA_AMOUNT){
+            badge = BADGE.SANTA;
         }
+        return badge;
     }
 
 }

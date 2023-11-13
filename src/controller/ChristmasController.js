@@ -17,6 +17,7 @@ class ChristmasController {
 
     constructor() {
         this.#discount = new Discount();
+        this.#event = new Event();
     }
 
     async christmasProcess(){
@@ -57,18 +58,21 @@ class ChristmasController {
     }
 
     #eventCheck(){
-        this.#event = new Event(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
+        const GIFT_EVENT = this.#event.giftEventCheck(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
+        const BADGE = this.#event.badgeEventCheck();
+        this.#event = {GIFT_EVENT, BADGE};
     }
 
     #playEvent(){
+        console.log(this.#event.GIFT_EVENT.champagneGift);
         OutputView.outputPreviewEventBenefit(this.#visitSchedule.day);
         OutputView.outputOrderMenu(this.#orderMenu.order);
         OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.totalOrderAmount);
-        OutputView.outputGiftMenu(this.#event.champagneGift);
-        OutputView.outputBenefitList(this.#discount, this.#event.champagneGift);
-        OutputView.outputTotalBenefitAmount(this.#event.totalDiscount);
+        OutputView.outputGiftMenu(this.#event.GIFT_EVENT.champagneGift);
+        OutputView.outputBenefitList(this.#discount, this.#event.GIFT_EVENT.champagneGift);
+        OutputView.outputTotalBenefitAmount(this.#event.GIFT_EVENT.giftTotalDiscount);
         OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalOrderAmount-this.#totalDiscount);
-        OutputView.outputEventBadge(this.#event.badge);
+        OutputView.outputEventBadge(this.#event.BADGE);
     }
 
 }
