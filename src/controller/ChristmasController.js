@@ -22,11 +22,11 @@ class ChristmasController {
 
     async christmasProcess(){
         OutputView.outputWelCome();
-        // await this.#inputVisitSchedule();
-        // await this.#inputOrderMenu();
-        // this.#discountCheck();
-        // this.#eventCheck();
-        // this.#playEvent();
+        await this.#inputVisitSchedule();
+        await this.#inputOrderMenu();
+        this.#discountCheck();
+        this.#eventCheck();
+        this.#playEvent();
     }
 
     async #inputVisitSchedule(){
