@@ -1,4 +1,4 @@
-import { MAIN_MENU, DATE, AMOUNT, DESSERT_MENU } from '../contants/constants.js';
+import { MAIN_MENU, DATE, AMOUNT, DESSERT_MENU } from '../contants/Constants.js';
 
 class Discount {
 

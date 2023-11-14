@@ -1,5 +1,5 @@
-import { ERROR_MESSAGE } from "../contants/message.js";
-import { TOTAL_MENU, BEVERAGE_MENU, DATE, QUANTITY } from "../contants/constants.js"
+import { ERROR_MESSAGE } from "../contants/Message.js";
+import { TOTAL_MENU, BEVERAGE_MENU, DATE, QUANTITY } from "../contants/Constants.js"
 
 const Validation = {
     inputVisitScheduleValidate(visitSchedule){

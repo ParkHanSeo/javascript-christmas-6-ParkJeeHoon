@@ -1,4 +1,4 @@
-import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/constants.js';
+import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/Constants.js';
 
 class DecemberEvent {
 

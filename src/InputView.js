@@ -1,5 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
-import { INPUT_MESSAGE } from './contants/message.js';
+import { INPUT_MESSAGE } from './contants/Message.js';
 
 const InputView = {
     async userInputVisitSchedule() {
