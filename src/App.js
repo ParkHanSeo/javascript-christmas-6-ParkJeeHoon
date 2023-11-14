@@ -1,8 +1,8 @@
-import Christmas from './controller/ChristmasController.js';
+import ChristmasController from './controller/ChristmasController.js';
 
 class App {
   async run() {
-    await new Christmas().christmasProcess();
+    await new ChristmasController().christmasProcess();
   }
 }
 
