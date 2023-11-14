@@ -33,12 +33,12 @@ class Discount {
     #weekendDiscountAmountCheck(weekday, order) {
         let discountAmount = 0;
         order.forEach((data, idx) => {
-            const [menu, quantity] = data.split('-');
-            if(weekday === DATE.EVENT_WEEKEND && Object.values(MAIN_MENU).find(data => data.name === menu)){
-                discountAmount += AMOUNT.WEEKDAY_DISCOUNT * quantity;
+            const [MENU, QUANTITY] = data.split('-');
+            if(weekday === DATE.EVENT_WEEKEND && Object.values(MAIN_MENU).find(data => data.name === MENU)){
+                discountAmount += AMOUNT.WEEKDAY_DISCOUNT * QUANTITY;
             } 
-            if(weekday === DATE.EVENT_WEEKDAY && Object.values(DESSERT_MENU).find(data => data.name === menu)) {
-                discountAmount += AMOUNT.WEEKDAY_DISCOUNT * quantity;
+            if(weekday === DATE.EVENT_WEEKDAY && Object.values(DESSERT_MENU).find(data => data.name === MENU)) {
+                discountAmount += AMOUNT.WEEKDAY_DISCOUNT * QUANTITY;
             }
         });
         return discountAmount;

@@ -14,8 +14,8 @@ const OutputView = {
     outputOrderMenu(orderMenu) {
         Console.print(MESSAGE.TOTAL_MENU_MSG);
         orderMenu.forEach((data, idx) => {
-            const [menu, quantity] = data.split('-');
-            Console.print(MESSAGE.ORDER_MENU_MSG(menu, quantity));
+            const [MENU, QUANTITY] = data.split('-');
+            Console.print(MESSAGE.ORDER_MENU_MSG(MENU, QUANTITY));
         });
     },
 

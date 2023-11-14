@@ -17,10 +17,10 @@ class Order {
     #totalOrderAmount(order) {
         let totalAmount = 0;
         order.forEach((data, idx) => {
-            const [menu, quantity] = data.split('-');
-            const MENU_CHECK = Object.values(TOTAL_MENU).find(data => data.name === menu);
+            const [MENU, QUANTITY] = data.split('-');
+            const MENU_CHECK = Object.values(TOTAL_MENU).find(data => data.name === MENU);
             if(MENU_CHECK){
-                totalAmount += MENU_CHECK.price * parseInt(quantity);
+                totalAmount += MENU_CHECK.price * parseInt(QUANTITY);
             }
         });
         return totalAmount;

@@ -15,10 +15,10 @@ const Validation = {
         const duplicateData = [];
         let menuQuantityCount = 0;
         orderMenu.forEach((data, idx) => {
-            const [menu, quantity] = data.split('-');
-            duplicateData.push(menu);
-            menuQuantityCount += Number(quantity);
-            this.orderMenuForValidateCheck(orderMenu, data, menu, quantity);
+            const [MENU, QUANTITY] = data.split('-');
+            duplicateData.push(MENU);
+            menuQuantityCount += Number(QUANTITY);
+            this.orderMenuForValidateCheck(orderMenu, data, MENU, QUANTITY);
         });
         this.orderMenuValidateCheck(orderMenu, duplicateData, menuQuantityCount);
     },
