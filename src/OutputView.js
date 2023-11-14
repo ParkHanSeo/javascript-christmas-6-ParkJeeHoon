@@ -44,7 +44,7 @@ const OutputView = {
 
     checkBenefitOunput(discount, gift) {
         if (discount.CHRISTMAS_DISCOUNT === 0 && discount.WEEKEND_DISCOUNT.weekendDiscount === 0 && discount.SPECIAL_DISCOUNT === 0 && gift === undefined) {
-            return Console.print('없음');
+            return Console.print(MESSAGE.NONE);
         }
     },
 

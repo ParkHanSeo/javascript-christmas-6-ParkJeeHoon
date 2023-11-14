@@ -7,6 +7,7 @@ export const MESSAGE = {
     TOTAL_BENEFIT_AMOUNT_MSG: '\n<총혜택 금액>',
     EXPECTED_PAYMENT_AMOUNT_MSG: '<할인 후 예상 결제 금액>',
     EVENT_BADGE_MSG: '<12월 이벤트 배지>',
+    NONE: '없음',
     EVENT_BENEFIT_MSG: (day) => {
         return `12월 ${day}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`;
     },
