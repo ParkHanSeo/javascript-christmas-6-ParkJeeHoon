@@ -68,100 +68,100 @@ describe("기능 테스트", () => {
     expectLogContains(getOutput(logSpy), expected);
   });
 
-  // test("모든 타이틀 및 output 출력 TEST", async () => {
-  //   // given
-  //   const logSpy = getLogSpy();
-  //   mockQuestions(["25", "양송이수프-1,크리스마스파스타-1,아이스크림-2,레드와인-1"]);
+  test("모든 타이틀 및 output 출력 TEST", async () => {
+    // given
+    const logSpy = getLogSpy();
+    mockQuestions(["25", "양송이수프-1,크리스마스파스타-1,아이스크림-2,레드와인-1"]);
 
-  //   // when
-  //   const app = new App();
-  //   await app.run();
+    // when
+    const app = new App();
+    await app.run();
 
-  //   // then
-  //   const expected = [
-  //     "<주문 메뉴>",
-  //     "양송이수프 1개",
-  //     "크리스마스파스타 1개",
-  //     "아이스크림 2개",
-  //     "레드와인 1개",
-  //     "<할인 전 총주문 금액>",
-  //     "150,000원",
-  //     "<증정 메뉴>",
-  //     "샴페인 1개",
-  //     "<혜택 내역>",
-  //     "크리스마스 디데이 할인: -3,400",
-  //     "평일 할인: -4,046",
-  //     "증정 이벤트: -25,000",
-  //     "<총혜택 금액>",
-  //     "-32,446원",
-  //     "<할인 후 예상 결제 금액>",
-  //     "142,554원",
-  //     "<12월 이벤트 배지>",
-  //     "산타",
-  //   ];
+    // then
+    const expected = [
+      "<주문 메뉴>",
+      "양송이수프 1개",
+      "크리스마스파스타 1개",
+      "아이스크림 2개",
+      "레드와인 1개",
+      "<할인 전 총주문 금액>",
+      "150,000원",
+      "<증정 메뉴>",
+      "샴페인 1개",
+      "<혜택 내역>",
+      "크리스마스 디데이 할인: -3,400",
+      "평일 할인: -4,046",
+      "증정 이벤트: -25,000",
+      "<총혜택 금액>",
+      "-32,446원",
+      "<할인 후 예상 결제 금액>",
+      "142,554원",
+      "<12월 이벤트 배지>",
+      "산타",
+    ];
 
-  //   expectLogContains(getOutput(logSpy), expected);
-  // });
+    expectLogContains(getOutput(logSpy), expected);
+  });
 
-  // test("증정 메뉴 타이틀과 없음 출력 TEST", async () => {
-  //   // given
-  //   const logSpy = getLogSpy();
-  //   mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
+  test("증정 메뉴 타이틀과 없음 출력 TEST", async () => {
+    // given
+    const logSpy = getLogSpy();
+    mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
 
-  //   // when
-  //   const app = new App();
-  //   await app.run();
+    // when
+    const app = new App();
+    await app.run();
 
-  //   // then
-  //   const expected = ["<증정 메뉴>" + LINE_SEPARATOR + "없음"];
+    // then
+    const expected = ["<증정 메뉴>" + LINE_SEPARATOR + "없음"];
 
-  //   expectLogContains(getOutput(logSpy), expected);
-  // });
+    expectLogContains(getOutput(logSpy), expected);
+  });
 
-  // test("혜택 내역 타이틀과 없음 출력 TEST", async () => {
-  //   // given
-  //   const logSpy = getLogSpy();
-  //   mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
+  test("혜택 내역 타이틀과 없음 출력 TEST", async () => {
+    // given
+    const logSpy = getLogSpy();
+    mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
 
-  //   // when
-  //   const app = new App();
-  //   await app.run();
+    // when
+    const app = new App();
+    await app.run();
 
-  //   // then
-  //   const expected = ["<혜택 내역>" + LINE_SEPARATOR + "없음"];
+    // then
+    const expected = ["<혜택 내역>" + LINE_SEPARATOR + "없음"];
 
-  //   expectLogContains(getOutput(logSpy), expected);
-  // });
+    expectLogContains(getOutput(logSpy), expected);
+  });
 
-  // test("총혜택 금액 타이틀과 0원 출력 TEST", async () => {
-  //   // given
-  //   const logSpy = getLogSpy();
-  //   mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
+  test("총혜택 금액 타이틀과 0원 출력 TEST", async () => {
+    // given
+    const logSpy = getLogSpy();
+    mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
 
-  //   // when
-  //   const app = new App();
-  //   await app.run();
+    // when
+    const app = new App();
+    await app.run();
 
-  //   // then
-  //   const expected = ["<총혜택 금액>" + LINE_SEPARATOR + "0원"];
+    // then
+    const expected = ["<총혜택 금액>" + LINE_SEPARATOR + "0원"];
 
-  //   expectLogContains(getOutput(logSpy), expected);
-  // });
+    expectLogContains(getOutput(logSpy), expected);
+  });
 
-  // test("12월 이벤트 배지 타이틀과 없음 출력 TEST", async () => {
-  //   // given
-  //   const logSpy = getLogSpy();
-  //   mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
+  test("12월 이벤트 배지 타이틀과 없음 출력 TEST", async () => {
+    // given
+    const logSpy = getLogSpy();
+    mockQuestions(["30", "초코케이크-1,제로콜라-1"]);
 
-  //   // when
-  //   const app = new App();
-  //   await app.run();
+    // when
+    const app = new App();
+    await app.run();
 
-  //   // then
-  //   const expected = ["<12월 이벤트 배지>" + LINE_SEPARATOR + "없음"];
+    // then
+    const expected = ["<12월 이벤트 배지>" + LINE_SEPARATOR + "없음"];
 
-  //   expectLogContains(getOutput(logSpy), expected);
-  // });
+    expectLogContains(getOutput(logSpy), expected);
+  });
 });
 
 describe("예외 테스트", () => {
