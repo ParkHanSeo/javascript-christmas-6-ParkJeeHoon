@@ -1,8 +1,13 @@
 import Christmas from './controller/ChristmasController.js';
 
 class App {
+
+  constructor(){
+    this.christmas = new Christmas();
+  }
+
   async run() {
-    await new Christmas().christmasProcess();
+    await this.christmas.christmasProcess();
   }
 }
 
