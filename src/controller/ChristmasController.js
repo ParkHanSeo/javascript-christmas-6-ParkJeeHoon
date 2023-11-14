@@ -26,7 +26,7 @@ class ChristmasController {
         await this.#inputOrderMenu();
         const DISCOUNT = this.#discountCheck();
         const EVENT = this.#eventCheck();
-        this.#playEvent(DISCOUNT, EVENT);
+        this.#outputEventResult(DISCOUNT, EVENT);
     }
 
     async #inputVisitSchedule(){
@@ -65,7 +65,7 @@ class ChristmasController {
         return EVENT;
     }
 
-    #playEvent(discount, event){
+    #outputEventResult(discount, event){
         OutputView.outputPreviewEventBenefit(this.#visitSchedule.day);
         OutputView.outputOrderMenu(this.#orderMenu.order);
         OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.totalOrderAmount);
