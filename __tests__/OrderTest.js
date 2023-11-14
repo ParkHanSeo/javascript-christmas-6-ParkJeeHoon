@@ -39,7 +39,7 @@ describe("Order 클래스 테스트", () => {
 
     test("사용자의 입력값 메뉴가 음료만 있을 경우 예외가 발생한다.", () => {
         expect(() => {
-          new Order(('제로콜라-1,샴페인3').split(','));
+          new Order(('제로콜라-1,샴페인-3').split(','));
         }).toThrow("[ERROR]");
     }); 
 });
