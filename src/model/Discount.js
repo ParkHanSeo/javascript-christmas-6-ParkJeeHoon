@@ -17,7 +17,7 @@ class Discount {
     weekendDiscountCheck(day, order) {
         let weekendDiscount = 0;
         let weekday;
-        const VISIT_DAY = new Date(2023, 11, day);
+        const VISIT_DAY = new Date(DATE.THIS_YEAR, DATE.EVENT_MONTH, day);
         if(VISIT_DAY.getDay() >= AMOUNT.WEEKDAY_START && VISIT_DAY.getDay() <= AMOUNT.WEEKDAY_END) {
             weekday = DATE.EVENT_WEEKDAY;
             weekendDiscount = this.#weekendDiscountAmountCheck(weekday, order);
@@ -45,7 +45,7 @@ class Discount {
 
     specialDiscountCheck(day) {
         let specialDiscount = 0;
-        const VISIT_DAY = new Date(2023, 11, day);
+        const VISIT_DAY = new Date(DATE.THIS_YEAR, DATE.EVENT_MONTH, day);
         const CHRISTMAS_DATE = DATE.EVENT_MAX_DATE.getDate();
         const SUNDAY = AMOUNT.WEEKDAY_START;
         if(VISIT_DAY.getDay() === SUNDAY || day === CHRISTMAS_DATE){
