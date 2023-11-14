@@ -2,7 +2,7 @@ import { Console } from "@woowacourse/mission-utils";
 import InputView from '../InputView.js';
 import OutputView from '../OutputView.js';
 import Discount from '../model/Discount.js';
-import Event from '../model/Event.js';
+import DecemberEvent from '../model/DecemberEvent.js';
 import Order from '../model/Order.js';
 import VisitDate from '../model/VisitDate.js';
 
@@ -12,12 +12,12 @@ class ChristmasController {
     #visitSchedule;
     #orderMenu;
     #discount;
-    #event;
+    #decemberEvent;
     #totalDiscount;
 
     constructor() {
         this.#discount = new Discount();
-        this.#event = new Event();
+        this.#decemberEvent = new DecemberEvent();
     }
 
     async christmasProcess(){
@@ -59,8 +59,8 @@ class ChristmasController {
     }
 
     #eventCheck(){
-        const GIFT_EVENT = this.#event.giftEventCheck(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
-        const BADGE = this.#event.badgeEventCheck();
+        const GIFT_EVENT = this.#decemberEvent.giftEventCheck(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
+        const BADGE = this.#decemberEvent.badgeEventCheck();
         const EVENT = {GIFT_EVENT, BADGE};
         return EVENT;
     }

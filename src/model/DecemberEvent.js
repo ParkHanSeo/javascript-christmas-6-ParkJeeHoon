@@ -1,6 +1,6 @@
 import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/constants.js';
 
-class Event {
+class DecemberEvent {
 
     #totalDiscount;
 
@@ -35,4 +35,4 @@ class Event {
 
 }
 
-export default Event
+export default DecemberEvent
