@@ -13,7 +13,6 @@ class ChristmasController {
     #orderMenu;
     #discount;
     #decemberEvent;
-    #totalDiscount;
 
     constructor() {
         this.#discount = new Discount();
@@ -25,7 +24,7 @@ class ChristmasController {
         await this.#inputVisitSchedule();
         await this.#inputOrderMenu();
         const DISCOUNT = this.#discountCheck();
-        const EVENT = this.#eventCheck();
+        const EVENT = this.#eventCheck(DISCOUNT);
         this.#outputEventResult(DISCOUNT, EVENT);
     }
 
@@ -53,13 +52,17 @@ class ChristmasController {
         const CHRISTMAS_DISCOUNT = this.#discount.christmasDiscountCheck(this.#visitSchedule.day);
         const WEEKEND_DISCOUNT = this.#discount.weekendDiscountCheck(this.#visitSchedule.day, this.#orderMenu.order);
         const SPECIAL_DISCOUNT = this.#discount.specialDiscountCheck(this.#visitSchedule.day);
-        const DISCOUNT = {CHRISTMAS_DISCOUNT, WEEKEND_DISCOUNT, SPECIAL_DISCOUNT};
-        this.#totalDiscount = (CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.weekendDiscount + SPECIAL_DISCOUNT);
+        const DISCOUNT = {
+            CHRISTMAS_DISCOUNT, 
+            WEEKEND_DISCOUNT, 
+            SPECIAL_DISCOUNT,
+            TOTAL_DISCOUNT: CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.weekendDiscount + SPECIAL_DISCOUNT
+        };
         return DISCOUNT;
     }
 
-    #eventCheck(){
-        const GIFT_EVENT = this.#decemberEvent.giftEventCheck(this.#totalDiscount, this.#orderMenu.totalOrderAmount);
+    #eventCheck(discount){
+        const GIFT_EVENT = this.#decemberEvent.giftEventCheck(discount.TOTAL_DISCOUNT, this.#orderMenu.totalOrderAmount);
         const BADGE = this.#decemberEvent.badgeEventCheck();
         const EVENT = {GIFT_EVENT, BADGE};
         return EVENT;
@@ -72,7 +75,7 @@ class ChristmasController {
         OutputView.outputGiftMenu(event.GIFT_EVENT.champagneGift);
         OutputView.outputBenefitList(discount, event.GIFT_EVENT.champagneGift);
         OutputView.outputTotalBenefitAmount(event.GIFT_EVENT.giftTotalDiscount);
-        OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalOrderAmount-this.#totalDiscount);
+        OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalOrderAmount-discount.TOTAL_DISCOUNT);
         OutputView.outputEventBadge(event.BADGE);
     }
 
