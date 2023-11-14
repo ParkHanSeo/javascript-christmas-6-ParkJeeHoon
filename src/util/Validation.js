@@ -14,16 +14,16 @@ const Validation = {
     inputOrderMenuValidate(orderMenu){
         const duplicateData = [];
         let menuQuantityCount = 0;
-        orderMenu.forEach((data, idx) => {
+        orderMenu.forEach((data) => {
             const [MENU, QUANTITY] = data.split('-');
             duplicateData.push(MENU);
             menuQuantityCount += Number(QUANTITY);
-            this.orderMenuForValidateCheck(orderMenu, data, MENU, QUANTITY);
+            this.orderMenuForValidateCheck(orderMenu, MENU, QUANTITY);
         });
         this.orderMenuValidateCheck(orderMenu, duplicateData, menuQuantityCount);
     },
 
-    orderMenuForValidateCheck(orderMenu, data, menu, quantity){
+    orderMenuForValidateCheck(orderMenu, menu, quantity){
         if(!Object.values(TOTAL_MENU).find(data => data.name === menu))
             throw new Error(`${ERROR_MESSAGE.ORDER_MENU_ERROR}`);
         if(isNaN(quantity) || quantity == 0)

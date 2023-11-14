@@ -16,7 +16,7 @@ class Order {
 
     #totalOrderAmount(order) {
         let totalAmount = 0;
-        order.forEach((data, idx) => {
+        order.forEach((data) => {
             const [MENU, QUANTITY] = data.split('-');
             const MENU_CHECK = Object.values(TOTAL_MENU).find(data => data.name === MENU);
             if(MENU_CHECK){

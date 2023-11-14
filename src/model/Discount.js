@@ -31,7 +31,7 @@ class Discount {
 
     #weekendDiscountAmountCheck(weekday, order) {
         let discountAmount = 0;
-        order.forEach((data, idx) => {
+        order.forEach((data) => {
             const [MENU, QUANTITY] = data.split('-');
             if(weekday === DATE.EVENT_WEEKEND && Object.values(MAIN_MENU).find(data => data.name === MENU)){
                 discountAmount += AMOUNT.WEEKDAY_DISCOUNT * QUANTITY;
