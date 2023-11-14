@@ -30,23 +30,13 @@ class ChristmasController {
     }
 
     async #inputVisitSchedule(){
-        try{
-            const INPUT_VISIT_SCHEDULE = await InputView.userInputVisitSchedule();
-            this.#visitSchedule = new VisitDate(INPUT_VISIT_SCHEDULE);
-        }catch(error){
-            Console.print(error.message);
-            await this.#inputVisitSchedule();
-        }
+        const INPUT_VISIT_SCHEDULE = await InputView.userInputVisitSchedule();
+        this.#visitSchedule = new VisitDate(INPUT_VISIT_SCHEDULE);
     }
 
     async #inputOrderMenu(){
-        try{
-            const INPUT_ORDER_MENU = await InputView.userInputOrderMenu();
-            this.#orderMenu = new Order(INPUT_ORDER_MENU);
-        }catch(error){
-            Console.print(error.message);
-            await this.#inputOrderMenu();
-        }
+        const INPUT_ORDER_MENU = await InputView.userInputOrderMenu();
+        this.#orderMenu = new Order(INPUT_ORDER_MENU);
     }
 
     // #discountCheck(){
