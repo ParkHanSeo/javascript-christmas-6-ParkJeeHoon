@@ -10,10 +10,10 @@ import VisitDate from '../model/VisitDate.js';
 class ChristmasController {
 
     #visitSchedule;
-    #orderMenu;
-    #discount;
-    #decemberEvent;
-    #totalDiscount;
+    // #orderMenu;
+    // #discount;
+    // #decemberEvent;
+    // #totalDiscount;
 
     constructor() {
         // this.#discount = new Discount();
@@ -23,7 +23,7 @@ class ChristmasController {
     async christmasProcess(){
         // OutputView.outputWelCome();
         await this.#inputVisitSchedule();
-        await this.#inputOrderMenu();
+        // await this.#inputOrderMenu();
         // const DISCOUNT = this.#discountCheck();
         // const EVENT = this.#eventCheck();
         // this.#playEvent(DISCOUNT, EVENT);
@@ -34,10 +34,10 @@ class ChristmasController {
         this.#visitSchedule = new VisitDate(INPUT_VISIT_SCHEDULE);
     }
 
-    async #inputOrderMenu(){
-        const INPUT_ORDER_MENU = await InputView.userInputOrderMenu();
-        this.#orderMenu = new Order(INPUT_ORDER_MENU);
-    }
+    // async #inputOrderMenu(){
+    //     const INPUT_ORDER_MENU = await InputView.userInputOrderMenu();
+    //     this.#orderMenu = new Order(INPUT_ORDER_MENU);
+    // }
 
     // #discountCheck(){
     //     const CHRISTMAS_DISCOUNT = this.#discount.christmasDiscountCheck(this.#visitSchedule.day);
