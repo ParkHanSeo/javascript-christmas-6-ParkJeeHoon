@@ -26,7 +26,7 @@ class ChristmasController {
         await this.#inputOrderMenu();
         this.#discountCheck();
         this.#eventCheck();
-        this.#playEvent();
+        // this.#playEvent();
     }
 
     async #inputVisitSchedule(){
