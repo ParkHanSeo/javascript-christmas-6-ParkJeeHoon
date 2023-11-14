@@ -10,10 +10,13 @@ class Event {
 
     giftEventCheck(discount, totalAmount) {
         let champagneGift;
-        let giftTotalDiscount = 0;
+        let giftTotalDiscount = discount;
+        console.log('체크');
+        console.log(discount);
+        console.log(totalAmount);
         if(totalAmount >= EVENT.GIFT_AMOUNT){
             champagneGift = BEVERAGE_MENU.CHAMPAGNE.name;
-            giftTotalDiscount = BEVERAGE_MENU.CHAMPAGNE.price + discount;
+            giftTotalDiscount += BEVERAGE_MENU.CHAMPAGNE.price;
         }
         this.#totalDiscount = giftTotalDiscount;
         return { giftTotalDiscount, champagneGift };
