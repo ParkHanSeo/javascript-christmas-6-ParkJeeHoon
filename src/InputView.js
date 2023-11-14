@@ -1,5 +1,4 @@
 import { Console } from "@woowacourse/mission-utils";
-import Validation from './util/Validation.js';
 import { INPUT_MESSAGE } from './contants/message.js';
 
 const InputView = {
