@@ -55,7 +55,7 @@ class ChristmasController {
 
     #eventCheck(discount){
         const GIFT_EVENT = this.#decemberEvent.giftEventCheck(discount.TOTAL_DISCOUNT, this.#orderMenu.totalAmount);
-        const BADGE = this.#decemberEvent.badgeEventCheck();
+        const BADGE = this.#decemberEvent.badgeEventCheck(discount.TOTAL_DISCOUNT);
         const EVENT = {GIFT_EVENT, BADGE};
         return EVENT;
     }
