@@ -12,7 +12,7 @@ export const MESSAGE = {
         return `12월 ${day}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`;
     },
     ORDER_MENU_MSG: (menu, quantity) => {
-        if(menu === undefined || menu === 0 || menu === false){
+        if(menu === undefined || menu === 0 || menu === false || menu === ''){
             return '없음\n';
         }
         return `${menu} ${quantity}개`;
