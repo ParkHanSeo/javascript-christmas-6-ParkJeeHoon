@@ -14,17 +14,22 @@ class Order {
         Validation.inputOrderMenuValidate(this.#order);
     }
 
-    totalMenuOrderAmount() {
-        let totalAmount = 0;
+    orderProcess() {
         const ORDER = this.#order;
-        ORDER.forEach((data) => {
+        const TOTAL_AMOUNT = this.#getTotalOrderMenuAmount();
+        return { ORDER, TOTAL_AMOUNT }
+    }
+
+    #getTotalOrderMenuAmount() {
+        let totalAmount = 0;
+        this.#order.forEach((data) => {
             const [MENU, QUANTITY] = data.split('-');
             const MENU_CHECK = Object.values(TOTAL_MENU).find(data => data.name === MENU);
             if(MENU_CHECK){
                 totalAmount += MENU_CHECK.price * parseInt(QUANTITY);
             }
         });
-        return { ORDER, totalAmount };
+        return totalAmount;
     }
 
 }

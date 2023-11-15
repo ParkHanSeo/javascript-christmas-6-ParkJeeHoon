@@ -41,7 +41,7 @@ class ChristmasController {
     async #inputOrderMenu(){
         try{
             const INPUT_ORDER_MENU = await InputView.userInputOrderMenu();
-            this.#orderMenu = new Order(INPUT_ORDER_MENU).totalMenuOrderAmount();
+            this.#orderMenu = new Order(INPUT_ORDER_MENU).orderProcess();
         }catch(error){
             Console.print(error.message);
             await this.#inputOrderMenu();
@@ -54,7 +54,7 @@ class ChristmasController {
     }
 
     #eventCheck(discount){
-        const GIFT_CHAMPAGNE = this.#decemberEvent.getGiftChampagneCheck(this.#orderMenu.totalAmount);
+        const GIFT_CHAMPAGNE = this.#decemberEvent.getGiftChampagneCheck(this.#orderMenu.TOTAL_AMOUNT);
         const GIFT_TOTAL_DISCOUNT = this.#decemberEvent.getGiftTotalDiscountCheck(discount.TOTAL_DISCOUNT, GIFT_CHAMPAGNE);
         const BADGE = this.#decemberEvent.getBadgeEventCheck(GIFT_TOTAL_DISCOUNT);
         const EVENT = {GIFT_CHAMPAGNE, GIFT_TOTAL_DISCOUNT, BADGE};
@@ -64,11 +64,11 @@ class ChristmasController {
     #outputEventResult(discount, event){
         OutputView.outputPreviewEventBenefit(this.#visitSchedule);
         OutputView.outputOrderMenu(this.#orderMenu.ORDER);
-        OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.totalAmount);
+        OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.TOTAL_AMOUNT);
         OutputView.outputGiftMenu(event.GIFT_CHAMPAGNE);
         OutputView.outputBenefitList(discount, event.GIFT_CHAMPAGNE);
         OutputView.outputTotalBenefitAmount(event.GIFT_TOTAL_DISCOUNT);
-        OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalAmount-discount.TOTAL_DISCOUNT);
+        OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.TOTAL_AMOUNT-discount.TOTAL_DISCOUNT);
         OutputView.outputEventBadge(event.BADGE);
     }
 
