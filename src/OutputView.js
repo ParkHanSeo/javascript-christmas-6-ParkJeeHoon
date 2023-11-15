@@ -43,7 +43,7 @@ const OutputView = {
     },
 
     checkBenefitOunput(discount, gift) {
-        if (discount.CHRISTMAS_DISCOUNT === 0 && discount.WEEKEND_DISCOUNT.weekendDiscount === 0 && discount.SPECIAL_DISCOUNT === 0 && gift === undefined) {
+        if (discount.CHRISTMAS_DISCOUNT === 0 && discount.WEEKEND_DISCOUNT.weekendDiscount === 0 && discount.SPECIAL_DISCOUNT === 0 && gift === '') {
             return Console.print(MESSAGE.NONE);
         }
     },
