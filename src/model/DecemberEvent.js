@@ -11,7 +11,7 @@ class DecemberEvent {
     }
 
     getGiftTotalDiscountCheck(discount, champagneGift) {
-        if(champagneGift != '' || champagneGift != undefined){
+        if(champagneGift != ''){
             return discount + BEVERAGE_MENU.CHAMPAGNE.price;
         }
         return discount;
