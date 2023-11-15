@@ -13,7 +13,7 @@ class DecemberEvent {
     }
 
     badgeEventCheck(totalDiscount) {
-        let badge;
+        let badge = '';
         if(totalDiscount >= BADGE_AMOUNT.STAR_AMOUNT){
             badge = BADGE.STAR;
         }
