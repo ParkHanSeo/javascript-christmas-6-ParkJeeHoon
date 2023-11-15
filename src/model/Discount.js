@@ -2,7 +2,15 @@ import { MAIN_MENU, DATE, AMOUNT, DESSERT_MENU } from '../contants/Constants.js'
 
 class Discount {
 
-    christmasDiscountCheck(day) {
+    promotionTotalDiscount(day, order) {
+        const CHRISTMAS_DISCOUNT = this.#christmasDiscountCheck(day);
+        const WEEKEND_DISCOUNT = this.#weekendDiscountCheck(day, order);
+        const SPECIAL_DISCOUNT = this.#specialDiscountCheck(day);
+        const TOTAL_DISCOUNT = CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.weekendDiscount + SPECIAL_DISCOUNT;
+        return { CHRISTMAS_DISCOUNT, WEEKEND_DISCOUNT, SPECIAL_DISCOUNT, TOTAL_DISCOUNT }
+    }
+    
+    #christmasDiscountCheck(day) {
         let totalAmount = AMOUNT.CHRISTMAS_START_AMOUNT;
         const CHRISTMAS_DATE = DATE.EVENT_MAX_DATE.getDate();
         if(day <= CHRISTMAS_DATE) {
@@ -14,7 +22,7 @@ class Discount {
         return 0;
     }
 
-    weekendDiscountCheck(day, order) {
+    #weekendDiscountCheck(day, order) {
         let weekendDiscount = 0;
         let weekday;
         const VISIT_DAY = new Date(DATE.THIS_YEAR, DATE.EVENT_MONTH, day);
@@ -43,7 +51,7 @@ class Discount {
         return discountAmount;
     }
 
-    specialDiscountCheck(day) {
+    #specialDiscountCheck(day) {
         let specialDiscount = 0;
         const VISIT_DAY = new Date(DATE.THIS_YEAR, DATE.EVENT_MONTH, day);
         const CHRISTMAS_DATE = DATE.EVENT_MAX_DATE.getDate();

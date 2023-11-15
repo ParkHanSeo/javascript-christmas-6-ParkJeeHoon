@@ -49,15 +49,7 @@ class ChristmasController {
     }
 
     #discountCheck(){
-        const CHRISTMAS_DISCOUNT = this.#discount.christmasDiscountCheck(this.#visitSchedule);
-        const WEEKEND_DISCOUNT = this.#discount.weekendDiscountCheck(this.#visitSchedule, this.#orderMenu.ORDER);
-        const SPECIAL_DISCOUNT = this.#discount.specialDiscountCheck(this.#visitSchedule);
-        const DISCOUNT = {
-            CHRISTMAS_DISCOUNT, 
-            WEEKEND_DISCOUNT, 
-            SPECIAL_DISCOUNT,
-            TOTAL_DISCOUNT: CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.weekendDiscount + SPECIAL_DISCOUNT
-        };
+        const DISCOUNT = this.#discount.promotionTotalDiscount(this.#visitSchedule, this.#orderMenu.ORDER);
         return DISCOUNT;
     }
 
