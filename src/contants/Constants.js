@@ -1,7 +1,7 @@
 export const APPETIZER = {
     MUSHROOM_SOUP: {
         name: '양송이수프',
-        price: 55000
+        price: 6000
     }, 
     TAPAS: {
         name: '타파스',
@@ -65,7 +65,7 @@ export const QUANTITY = {
 export const TOTAL_MENU = {
     MUSHROOM_SOUP: {
         name: '양송이수프',
-        price: 55000
+        price: 6000
     }, 
     TAPAS: {
         name: '타파스',
