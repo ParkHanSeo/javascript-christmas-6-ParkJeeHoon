@@ -2,17 +2,22 @@ import { EVENT, BADGE, BADGE_AMOUNT, BEVERAGE_MENU } from '../contants/Constants
 
 class DecemberEvent {
 
-    giftEventCheck(discount, totalAmount) {
+    getGiftChampagneCheck(totalAmount) {
         let champagneGift = '';
-        let giftTotalDiscount = discount;
         if(totalAmount >= EVENT.GIFT_AMOUNT){
             champagneGift = BEVERAGE_MENU.CHAMPAGNE.name;
-            giftTotalDiscount += BEVERAGE_MENU.CHAMPAGNE.price;
         }
-        return { giftTotalDiscount, champagneGift };
+        return champagneGift;
     }
 
-    badgeEventCheck(totalDiscount) {
+    getGiftTotalDiscountCheck(discount, champagneGift) {
+        if(champagneGift != '' || champagneGift != undefined){
+            return discount + BEVERAGE_MENU.CHAMPAGNE.price;
+        }
+        return discount;
+    }
+
+    getBadgeEventCheck(totalDiscount) {
         let badge = '';
         if(totalDiscount >= BADGE_AMOUNT.STAR_AMOUNT){
             badge = BADGE.STAR;

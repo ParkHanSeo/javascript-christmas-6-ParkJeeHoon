@@ -54,9 +54,10 @@ class ChristmasController {
     }
 
     #eventCheck(discount){
-        const GIFT_EVENT = this.#decemberEvent.giftEventCheck(discount.TOTAL_DISCOUNT, this.#orderMenu.totalAmount);
-        const BADGE = this.#decemberEvent.badgeEventCheck(GIFT_EVENT.giftTotalDiscount);
-        const EVENT = {GIFT_EVENT, BADGE};
+        const GIFT_CHAMPAGNE = this.#decemberEvent.getGiftChampagneCheck(this.#orderMenu.totalAmount);
+        const GIFT_TOTAL_DISCOUNT = this.#decemberEvent.getGiftTotalDiscountCheck(discount.TOTAL_DISCOUNT, GIFT_CHAMPAGNE);
+        const BADGE = this.#decemberEvent.getBadgeEventCheck(GIFT_TOTAL_DISCOUNT);
+        const EVENT = {GIFT_CHAMPAGNE, GIFT_TOTAL_DISCOUNT, BADGE};
         return EVENT;
     }
 
@@ -64,9 +65,9 @@ class ChristmasController {
         OutputView.outputPreviewEventBenefit(this.#visitSchedule);
         OutputView.outputOrderMenu(this.#orderMenu.ORDER);
         OutputView.outputDiscountBeforeTotalAmount(this.#orderMenu.totalAmount);
-        OutputView.outputGiftMenu(event.GIFT_EVENT.champagneGift);
-        OutputView.outputBenefitList(discount, event.GIFT_EVENT.champagneGift);
-        OutputView.outputTotalBenefitAmount(event.GIFT_EVENT.giftTotalDiscount);
+        OutputView.outputGiftMenu(event.GIFT_CHAMPAGNE);
+        OutputView.outputBenefitList(discount, event.GIFT_CHAMPAGNE);
+        OutputView.outputTotalBenefitAmount(event.GIFT_TOTAL_DISCOUNT);
         OutputView.outputDiscountAfterTotalAmount(this.#orderMenu.totalAmount-discount.TOTAL_DISCOUNT);
         OutputView.outputEventBadge(event.BADGE);
     }
