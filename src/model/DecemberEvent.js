@@ -9,7 +9,7 @@ class DecemberEvent {
     }
 
     giftEventCheck(discount, totalAmount) {
-        let champagneGift;
+        let champagneGift = '';
         let giftTotalDiscount = discount;
         if(totalAmount >= EVENT.GIFT_AMOUNT){
             champagneGift = BEVERAGE_MENU.CHAMPAGNE.name;
