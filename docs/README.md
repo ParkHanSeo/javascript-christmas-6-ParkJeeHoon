@@ -89,8 +89,10 @@
 ```
 
 ## 테스트 결과
-![크리스마스 프로모션 결과](https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_result.png)
-![크리스마스 jest 테스트 결과](https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_jest.png)
+<div style="display: flex">
+    <img src="https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_result.png" style="width: 50%;">
+    <img src="https://github.com/ParkHanSeo/javascript-christmas-6-ParkJeeHoon/blob/main/docs/christmas_jest.png" style="width: 50%;">
+</div>
 
 
 ## :high_brightness: 기능 구조
