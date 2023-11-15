@@ -33,8 +33,8 @@ const OutputView = {
         Console.print(MESSAGE.BENEFIT_LIST_MSG);
         if(discount.CHRISTMAS_DISCOUNT !== 0)
             Console.print(BENEFIT_MESSAGE.CHRISTMAS_DDAY_DISCOUNT(new Intl.NumberFormat().format(discount.CHRISTMAS_DISCOUNT)));
-        if(discount.WEEKEND_DISCOUNT.weekendDiscount !== 0)
-            Console.print(BENEFIT_MESSAGE.WEEKDAY_DISCOUNT(new Intl.NumberFormat().format(discount.WEEKEND_DISCOUNT.weekendDiscount), discount.WEEKEND_DISCOUNT.weekday));
+        if(discount.WEEKEND_DISCOUNT.WEEKEND_DISCOUNT_AMOUNT !== 0)
+            Console.print(BENEFIT_MESSAGE.WEEKDAY_DISCOUNT(new Intl.NumberFormat().format(discount.WEEKEND_DISCOUNT.WEEKEND_DISCOUNT_AMOUNT), discount.WEEKEND_DISCOUNT.WEEKDAY));
         if(discount.SPECIAL_DISCOUNT !== 0)
             Console.print(BENEFIT_MESSAGE.SPECIAL_DISCOUNT(new Intl.NumberFormat().format(discount.SPECIAL_DISCOUNT)));
         if(gift !== '' && gift !== undefined)
@@ -43,7 +43,7 @@ const OutputView = {
     },
 
     checkBenefitOunput(discount, gift) {
-        if (discount.CHRISTMAS_DISCOUNT === 0 && discount.WEEKEND_DISCOUNT.weekendDiscount === 0 && discount.SPECIAL_DISCOUNT === 0 && gift === '') {
+        if (discount.CHRISTMAS_DISCOUNT === 0 && discount.WEEKEND_DISCOUNT.WEEKEND_DISCOUNT_AMOUNT === 0 && discount.SPECIAL_DISCOUNT === 0 && gift === '') {
             return Console.print(MESSAGE.NONE);
         }
     },

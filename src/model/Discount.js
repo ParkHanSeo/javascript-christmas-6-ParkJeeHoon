@@ -4,9 +4,9 @@ class Discount {
 
     promotionTotalDiscount(day, order) {
         const CHRISTMAS_DISCOUNT = this.#christmasDiscountCheck(day);
-        const WEEKEND_DISCOUNT = this.#weekendDiscountCheck(day, order);
+        const WEEKEND_DISCOUNT = this.#getWeekend(day, order);
         const SPECIAL_DISCOUNT = this.#specialDiscountCheck(day);
-        const TOTAL_DISCOUNT = CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.weekendDiscount + SPECIAL_DISCOUNT;
+        const TOTAL_DISCOUNT = CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.WEEKEND_DISCOUNT_AMOUNT + SPECIAL_DISCOUNT;
         return { CHRISTMAS_DISCOUNT, WEEKEND_DISCOUNT, SPECIAL_DISCOUNT, TOTAL_DISCOUNT }
     }
     
@@ -22,22 +22,25 @@ class Discount {
         return 0;
     }
 
-    #weekendDiscountCheck(day, order) {
-        let weekendDiscount = 0;
+    #getWeekend(day, order) {
+        const WEEKDAY = this.#getWeekdayCheck(day);
+        const WEEKEND_DISCOUNT_AMOUNT = this.#getWeekendDiscountAmountCheck(WEEKDAY, order);
+        return { WEEKDAY, WEEKEND_DISCOUNT_AMOUNT };
+    }
+
+    #getWeekdayCheck(day) {
         let weekday;
         const VISIT_DAY = new Date(DATE.THIS_YEAR, DATE.EVENT_MONTH, day);
         if(VISIT_DAY.getDay() >= AMOUNT.WEEKDAY_START && VISIT_DAY.getDay() <= AMOUNT.WEEKDAY_END) {
             weekday = DATE.EVENT_WEEKDAY;
-            weekendDiscount = this.#weekendDiscountAmountCheck(weekday, order);
         } 
         if(VISIT_DAY.getDay() >= AMOUNT.WEEKEND_START && VISIT_DAY.getDay() <= AMOUNT.WEEKEND_END) {
             weekday = DATE.EVENT_WEEKEND;
-            weekendDiscount = this.#weekendDiscountAmountCheck(weekday, order);
         }
-        return {weekday, weekendDiscount};
+        return weekday
     }
 
-    #weekendDiscountAmountCheck(weekday, order) {
+    #getWeekendDiscountAmountCheck(weekday, order) {
         let discountAmount = 0;
         order.forEach((data) => {
             const [MENU, QUANTITY] = data.split('-');
