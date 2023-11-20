@@ -5,9 +5,10 @@ class Discount {
     promotionTotalDiscount(day, order) {
         const CHRISTMAS_DISCOUNT = this.#christmasDiscountCheck(day);
         const WEEKEND_DISCOUNT = this.#getWeekend(day, order);
+        const WEEKDAY = this.#getWeekday(day);;
         const SPECIAL_DISCOUNT = this.#specialDiscountCheck(day);
-        const TOTAL_DISCOUNT = CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT.WEEKEND_DISCOUNT_AMOUNT + SPECIAL_DISCOUNT;
-        return { CHRISTMAS_DISCOUNT, WEEKEND_DISCOUNT, SPECIAL_DISCOUNT, TOTAL_DISCOUNT }
+        const TOTAL_DISCOUNT = CHRISTMAS_DISCOUNT + WEEKEND_DISCOUNT + SPECIAL_DISCOUNT;
+        return { CHRISTMAS_DISCOUNT, WEEKEND_DISCOUNT, WEEKDAY, SPECIAL_DISCOUNT, TOTAL_DISCOUNT }
     }
     
     #christmasDiscountCheck(day) {
@@ -22,10 +23,15 @@ class Discount {
         return 0;
     }
 
+    #getWeekday(day) {
+        const WEEKDAY = this.#getWeekdayCheck(day);
+        return WEEKDAY;
+    }
+
     #getWeekend(day, order) {
         const WEEKDAY = this.#getWeekdayCheck(day);
         const WEEKEND_DISCOUNT_AMOUNT = this.#getWeekendDiscountAmountCheck(WEEKDAY, order);
-        return { WEEKDAY, WEEKEND_DISCOUNT_AMOUNT };
+        return WEEKEND_DISCOUNT_AMOUNT;
     }
 
     #getWeekdayCheck(day) {

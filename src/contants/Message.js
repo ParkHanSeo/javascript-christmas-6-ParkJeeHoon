@@ -52,6 +52,8 @@ export const BENEFIT_MESSAGE = {
         return `크리스마스 디데이 할인: -${discount}`;
     },
     WEEKDAY_DISCOUNT: (discount, weekday) => {
+        console.log('접근');
+        console.log(discount);
         if(weekday === 'we')
             return `주말 할인: -${discount}`;
         if(weekday === 'wd')
