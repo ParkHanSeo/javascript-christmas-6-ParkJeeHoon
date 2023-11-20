@@ -22,7 +22,7 @@ describe("DecemberEvent 클래스 테스트", () => {
         const discount = new Discount();
         const orderMenu = new Order(('티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1').split(',')).orderProcess();
         const discountResult = discount.promotionTotalDiscount(3, orderMenu.ORDER).WEEKEND_DISCOUNT;
-        const expected = {"WEEKDAY": "wd", "WEEKEND_DISCOUNT_AMOUNT": 4046};
+        const expected = 4046;
         expect(discountResult).toStrictEqual(expected);
     });
 
@@ -30,7 +30,7 @@ describe("DecemberEvent 클래스 테스트", () => {
         const discount = new Discount();
         const orderMenu = new Order(('바비큐립-1,아이스크림-1,샴페인-1').split(',')).orderProcess();
         const discountResult = discount.promotionTotalDiscount(2, orderMenu.ORDER).WEEKEND_DISCOUNT;
-        const expected = {"WEEKDAY": "we", "WEEKEND_DISCOUNT_AMOUNT": 2023};
+        const expected = 2023;
         expect(discountResult).toStrictEqual(expected);
     });
 
